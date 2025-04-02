@@ -3,7 +3,7 @@ Exercices du Cours RO05 / td-1 td-2 td-3 td-4
 
 # TD1
 
-## a) Gestion simplifiée du temps Posix
+## td1_a) Gestion simplifiée du temps Posix
 
 Pour le compiler, suivez ces étapes :
 
@@ -40,7 +40,7 @@ Sortie :
    Différence des temps : 0 secondes et 999500000 nanosecondes
    ```
 
-## b) Classe Chrono
+## td1_b) Classe Chrono
 
 Pour le compiler, suivez ces étapes :
 
@@ -76,7 +76,7 @@ Sortie :
 
 # TD2
 
-## a) Timers avec callback
+## td2_a) Timers avec callback
 
 Pour le compiler, suivez ces étapes :
 
@@ -123,7 +123,7 @@ Sortie :
    Le timer a été arrêté après 15 incrémentations !
    ```
 
-## b) Classe Timer
+## td2_b) Classe Timer
 
 **Éléments publics (Interface) :**
 
@@ -186,7 +186,7 @@ Sortie :
    Compte à rebours terminé !
    ```
 
-## c) Fonction simple consommant du CPU
+## td2_c) Fonction simple consommant du CPU
 
 **Const-Correctness**
 
@@ -198,13 +198,13 @@ Sortie :
 
 **Qualification des Variables**
 
-### `m_iLoop` (double) :
+`m_iLoop` (double) :
 
 - Aucune qualification spéciale nécessaire.
 - Accédé/modifié uniquement dans `runLoop()`.
 - Pas de exigences de sécurité des threads dans ce cas d'utilisation.
 
-### `m_doStop` (bool) :
+`m_doStop` (bool) :
 
 Doit être `volatile` si :
 
@@ -288,10 +288,9 @@ Sortie :
 
 ![Courbe des valeurs des temps d’exécution en fonction des valeurs de nLoops](TempsExecution_vs_nLoops_TD2C.png)
 
+## td2_d) Échantillonage du temps d’exécution d’une fonction
 
-## d) Échantillonage du temps d’exécution d’une fonction
-
-## e) Classe consommatrice de CPU durant un temps donné
+## td2_e) Classe consommatrice de CPU durant un temps donné
 
 # TD3
 
