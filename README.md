@@ -188,6 +188,65 @@ Sortie :
 
 ## c) Fonction simple consommant du CPU
 
+Pour le compiler, suivez ces étapes :
+
+1. Naviguez vers le répertoire du projet :
+   ```sh
+   cd MyProject/src/
+
+2. Compilez les fichiers sources :
+   ```sh
+   arm-linux-g++ -Wall -Wextra td2c.cpp Chrono.cpp TimespecUtils.cpp -o td2c
+
+3. Transférez le fichier compilé vers le dispositif ARM :
+   ```sh
+   rsync -avz td2c root@192.168.50.43:
+
+Cela transférera le fichier vers la machine cible avec l'adresse IP 192.168.50.43.
+
+4. Connectez-vous au dispositif ARM via SSH :
+   ```sh
+   ssh root@192.168.50.43
+
+5. Exécutez le programme compilé avec différents nombres de boucles :
+   ```sh
+   ./td2c 100
+   ./td2c 1000
+   ./td2c 10000
+   ./td2c 100000
+   ./td2c 1000000
+   ./td2c 10000000
+   ./td2c 100000000
+   ./td2c 1000000000
+
+Sortie :
+   ```sh
+   nLoops = 100
+   Temps d'exécution : 0.007656 millisecondes
+   
+   nLoops = 1000
+   Temps d'exécution : 0.060156 millisecondes
+   
+   nLoops = 10000
+   Temps d'exécution : 0.585469 millisecondes
+   
+   nLoops = 100000
+   Temps d'exécution : 5.915 millisecondes
+   
+   nLoops = 1000000
+   Temps d'exécution : 58.5209 millisecondes
+   
+   nLoops = 10000000
+   Temps d'exécution : 584.381 millisecondes
+   
+   nLoops = 100000000
+   Temps d'exécution : 5843.03 millisecondes
+   
+   nLoops = 1000000000
+   Temps d'exécution : 58428.2 millisecondes
+   ```
+
+
 ## d) Échantillonage du temps d’exécution d’une fonction
 
 ## e) Classe consommatrice de CPU durant un temps donné
