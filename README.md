@@ -5,31 +5,31 @@ Exercices du Cours RO05 / td-1 td-2 td-3 td-4
 
 ## a) Gestion simplifiée du temps Posix
 
-To compile it, follow these steps:
+Pour le compiler, suivez ces étapes :
 
-1. Navigate to the project directory :
+1. Naviguez vers le répertoire du projet :
    ```sh
    cd MyProject/src/
 
-2. Compile the source files :
+2. Compilez les fichiers sources :
    ```sh
    arm-linux-g++ -Wall -Wextra MainPosix.cpp TimespecUtils.cpp -o td1a
 
-3. Transfer the compiled file to the ARM device :
+3. Transférez le fichier compilé vers le dispositif ARM :
    ```sh
    rsync -avz td1a root@192.168.50.43:
 
-This will transfer the file to the target machine with the IP address 192.168.50.43.
+Cela transférera le fichier vers la machine cible avec l'adresse IP 192.168.50.43.
 
-4. Connect to the ARM device via SSH :
+4. Connectez-vous au dispositif ARM via SSH :
    ```sh
    ssh root@192.168.50.43
 
-5. Run the compiled program : 
+5. Exécutez le programme compilé :
    ```sh
    ./td1a
 
-Output:
+Sortie :
    ```sh
    2500.5 ms en secondes : 2500.5 ms
    Temps actuel : 534058 secondes et 333814554 nanosecondes
