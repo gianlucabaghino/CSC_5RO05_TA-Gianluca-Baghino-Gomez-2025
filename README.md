@@ -145,8 +145,6 @@ Sortie :
 - La méthode protégée `callback()` permet la personnalisation dans les classes dérivées.
 - Les membres privés cachent la complexité POSIX de bas niveau, assurant sécurité et encapsulation.
 
-Cela suit la spécification UML tout en respectant les principes de la POO : exposer ce qui est nécessaire, protéger ce qui est extensible, et cacher les détails d'implémentation.
-
 Pour le compiler, suivez ces étapes :
 
 1. Naviguez vers le répertoire du projet :
