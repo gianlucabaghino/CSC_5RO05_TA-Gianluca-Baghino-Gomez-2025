@@ -40,7 +40,7 @@ Sortie :
    Différence des temps : 0 secondes et 999500000 nanosecondes
    ```
 
-## b)
+## b) Classe Chrono
 
 Pour le compiler, suivez ces étapes :
 
