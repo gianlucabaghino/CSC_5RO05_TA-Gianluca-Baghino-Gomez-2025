@@ -10,26 +10,26 @@ To compile it, follow these steps:
 1. Navigate to the project directory :
    ```sh
    cd MyProject/src/
-   ```
-2. Compile the source files
 
-arm-linux-g++ -Wall -Wextra MainPosix.cpp TimespecUtils.cpp -o td1a
+2. Compile the source files :
+   ```sh
+   arm-linux-g++ -Wall -Wextra MainPosix.cpp TimespecUtils.cpp -o td1a
 
-Transfer the compiled file to your ARM device: Use rsync to send the compiled file:
-
-rsync -avz td1a root@192.168.50.43:
+3. Transfer the compiled file to the ARM device :
+   ```sh
+   rsync -avz td1a root@192.168.50.43:
 
 This will transfer the file to the target machine with the IP address 192.168.50.43.
 
-SSH into the ARM device: Connect to the ARM device via SSH:
+4. Connect to the ARM device via SSH :
+   ```sh
+   ssh root@192.168.50.43
 
-ssh root@192.168.50.43
+5. Run the compiled program : 
+   ```sh
+   ./td1a
 
-Run the compiled program: Once logged in, you can execute the program:
-
-    ./td1a
-
-Example Output:
+Output:
 
 2500.5 ms en secondes : 2500.5 ms
 Temps actuel : 534058 secondes et 333814554 nanosecondes
