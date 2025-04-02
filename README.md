@@ -298,7 +298,7 @@ Pour le compiler, suivez ces étapes :
 
 2. Compilez les fichiers sources :
    ```sh
-   arm-linux-g++ -Wall -Wextra -std=c++17 td2d.cpp Chrono.cpp TimespecUtils.cpp -o td2d -lrt -pthread -lm
+   arm-linux-g++ -Wall -Wextra td2d.cpp Chrono.cpp TimespecUtils.cpp -o td2d -lrt -pthread -lm
 
 3. Transférez le fichier compilé vers le dispositif ARM :
    ```sh
@@ -317,200 +317,201 @@ Cela transférera le fichier vers la machine cible avec l'adresse IP 192.168.50.
 Sortie :
    ```sh
    Résultats de la calibration :
-   a = 5249.08, b = 1.04901e+06
+   a = 5.24931e+06, b = 0
    
    Temps demandé : 0.5s
-   Boucles prédites : 1.05164e+06
-   Durée réelle : 0.200365s
+   Boucles prédites : 2.62466e+06
+   Durée réelle : 0.500059s
    --------------------------------
    Temps demandé : 0.7s
-   Boucles prédites : 1.05269e+06
-   Durée réelle : 0.200426s
+   Boucles prédites : 3.67452e+06
+   Durée réelle : 0.700042s
    --------------------------------
    Temps demandé : 0.9s
-   Boucles prédites : 1.05374e+06
-   Durée réelle : 0.20102s
+   Boucles prédites : 4.72438e+06
+   Durée réelle : 0.899768s
    --------------------------------
    Temps demandé : 1.1s
-   Boucles prédites : 1.05479e+06
-   Durée réelle : 0.201076s
+   Boucles prédites : 5.77424e+06
+   Durée réelle : 1.09958s
    --------------------------------
    Temps demandé : 1.3s
-   Boucles prédites : 1.05584e+06
-   Durée réelle : 0.201483s
+   Boucles prédites : 6.8241e+06
+   Durée réelle : 1.29968s
    --------------------------------
    Temps demandé : 1.5s
-   Boucles prédites : 1.05689e+06
-   Durée réelle : 0.201553s
+   Boucles prédites : 7.87396e+06
+   Durée réelle : 1.49976s
    --------------------------------
    Temps demandé : 1.7s
-   Boucles prédites : 1.05794e+06
-   Durée réelle : 0.201808s
+   Boucles prédites : 8.92383e+06
+   Durée réelle : 1.6994s
    --------------------------------
    Temps demandé : 1.9s
-   Boucles prédites : 1.05899e+06
-   Durée réelle : 0.202027s
+   Boucles prédites : 9.97369e+06
+   Durée réelle : 1.89924s
    --------------------------------
    Temps demandé : 2.1s
-   Boucles prédites : 1.06003e+06
-   Durée réelle : 0.201874s
+   Boucles prédites : 1.10236e+07
+   Durée réelle : 2.0994s
    --------------------------------
    Temps demandé : 2.3s
-   Boucles prédites : 1.06108e+06
-   Durée réelle : 0.202452s
+   Boucles prédites : 1.20734e+07
+   Durée réelle : 2.2991s
    --------------------------------
    Temps demandé : 2.5s
-   Boucles prédites : 1.06213e+06
-   Durée réelle : 0.202324s
+   Boucles prédites : 1.31233e+07
+   Durée réelle : 2.49905s
    --------------------------------
    Temps demandé : 2.7s
-   Boucles prédites : 1.06318e+06
-   Durée réelle : 0.202468s
+   Boucles prédites : 1.41731e+07
+   Durée réelle : 2.69894s
    --------------------------------
    Temps demandé : 2.9s
-   Boucles prédites : 1.06423e+06
-   Durée réelle : 0.20274s
+   Boucles prédites : 1.5223e+07
+   Durée réelle : 2.89886s
    --------------------------------
    Temps demandé : 3.1s
-   Boucles prédites : 1.06528e+06
-   Durée réelle : 0.202868s
+   Boucles prédites : 1.62729e+07
+   Durée réelle : 3.09869s
    --------------------------------
    Temps demandé : 3.3s
-   Boucles prédites : 1.06633e+06
-   Durée réelle : 0.203235s
+   Boucles prédites : 1.73227e+07
+   Durée réelle : 3.29884s
    --------------------------------
    Temps demandé : 3.5s
-   Boucles prédites : 1.06738e+06
-   Durée réelle : 0.203336s
+   Boucles prédites : 1.83726e+07
+   Durée réelle : 3.49853s
    --------------------------------
    Temps demandé : 3.7s
-   Boucles prédites : 1.06843e+06
-   Durée réelle : 0.203474s
+   Boucles prédites : 1.94224e+07
+   Durée réelle : 3.69848s
    --------------------------------
    Temps demandé : 3.9s
-   Boucles prédites : 1.06948e+06
-   Durée réelle : 0.203733s
+   Boucles prédites : 2.04723e+07
+   Durée réelle : 3.89835s
    --------------------------------
    Temps demandé : 4.1s
-   Boucles prédites : 1.07053e+06
-   Durée réelle : 0.203899s
+   Boucles prédites : 2.15222e+07
+   Durée réelle : 4.09826s
    --------------------------------
    Temps demandé : 4.3s
-   Boucles prédites : 1.07158e+06
-   Durée réelle : 0.204249s
+   Boucles prédites : 2.2572e+07
+   Durée réelle : 4.29821s
    --------------------------------
    Temps demandé : 4.5s
-   Boucles prédites : 1.07263e+06
-   Durée réelle : 0.204331s
+   Boucles prédites : 2.36219e+07
+   Durée réelle : 4.49821s
    --------------------------------
    Temps demandé : 4.7s
-   Boucles prédites : 1.07368e+06
-   Durée réelle : 0.204446s
+   Boucles prédites : 2.46718e+07
+   Durée réelle : 4.6979s
    --------------------------------
    Temps demandé : 4.9s
-   Boucles prédites : 1.07473e+06
-   Durée réelle : 0.204725s
+   Boucles prédites : 2.57216e+07
+   Durée réelle : 4.89803s
    --------------------------------
    Temps demandé : 5.1s
-   Boucles prédites : 1.07578e+06
-   Durée réelle : 0.204862s
+   Boucles prédites : 2.67715e+07
+   Durée réelle : 5.09785s
    --------------------------------
    Temps demandé : 5.3s
-   Boucles prédites : 1.07683e+06
-   Durée réelle : 0.205217s
+   Boucles prédites : 2.78213e+07
+   Durée réelle : 5.2981s
    --------------------------------
    Temps demandé : 5.5s
-   Boucles prédites : 1.07788e+06
-   Durée réelle : 0.205279s
+   Boucles prédites : 2.88712e+07
+   Durée réelle : 5.49783s
    --------------------------------
    Temps demandé : 5.7s
-   Boucles prédites : 1.07893e+06
-   Durée réelle : 0.205482s
+   Boucles prédites : 2.99211e+07
+   Durée réelle : 5.69798s
    --------------------------------
    Temps demandé : 5.9s
-   Boucles prédites : 1.07998e+06
-   Durée réelle : 0.205693s
+   Boucles prédites : 3.09709e+07
+   Durée réelle : 5.89747s
    --------------------------------
    Temps demandé : 6.1s
-   Boucles prédites : 1.08103e+06
-   Durée réelle : 0.205867s
+   Boucles prédites : 3.20208e+07
+   Durée réelle : 6.09749s
    --------------------------------
    Temps demandé : 6.3s
-   Boucles prédites : 1.08208e+06
-   Durée réelle : 0.20612s
+   Boucles prédites : 3.30707e+07
+   Durée réelle : 6.29735s
    --------------------------------
    Temps demandé : 6.5s
-   Boucles prédites : 1.08313e+06
-   Durée réelle : 0.206409s
+   Boucles prédites : 3.41205e+07
+   Durée réelle : 6.49737s
    --------------------------------
    Temps demandé : 6.7s
-   Boucles prédites : 1.08418e+06
-   Durée réelle : 0.206461s
+   Boucles prédites : 3.51704e+07
+   Durée réelle : 6.69788s
    --------------------------------
    Temps demandé : 6.9s
-   Boucles prédites : 1.08523e+06
-   Durée réelle : 0.206712s
+   Boucles prédites : 3.62202e+07
+   Durée réelle : 6.89711s
    --------------------------------
    Temps demandé : 7.1s
-   Boucles prédites : 1.08628e+06
-   Durée réelle : 0.206855s
+   Boucles prédites : 3.72701e+07
+   Durée réelle : 7.09705s
    --------------------------------
    Temps demandé : 7.3s
-   Boucles prédites : 1.08733e+06
-   Durée réelle : 0.207106s
+   Boucles prédites : 3.832e+07
+   Durée réelle : 7.29699s
    --------------------------------
    Temps demandé : 7.5s
-   Boucles prédites : 1.08838e+06
-   Durée réelle : 0.207412s
+   Boucles prédites : 3.93698e+07
+   Durée réelle : 7.49727s
    --------------------------------
    Temps demandé : 7.7s
-   Boucles prédites : 1.08943e+06
-   Durée réelle : 0.207442s
+   Boucles prédites : 4.04197e+07
+   Durée réelle : 7.69667s
    --------------------------------
    Temps demandé : 7.9s
-   Boucles prédites : 1.09048e+06
-   Durée réelle : 0.207701s
+   Boucles prédites : 4.14695e+07
+   Durée réelle : 7.89676s
    --------------------------------
    Temps demandé : 8.1s
-   Boucles prédites : 1.09153e+06
-   Durée réelle : 0.207851s
+   Boucles prédites : 4.25194e+07
+   Durée réelle : 8.09638s
    --------------------------------
    Temps demandé : 8.3s
-   Boucles prédites : 1.09258e+06
-   Durée réelle : 0.208115s
+   Boucles prédites : 4.35693e+07
+   Durée réelle : 8.29655s
    --------------------------------
    Temps demandé : 8.5s
-   Boucles prédites : 1.09363e+06
-   Durée réelle : 0.208417s
+   Boucles prédites : 4.46191e+07
+   Durée réelle : 8.49656s
    --------------------------------
    Temps demandé : 8.7s
-   Boucles prédites : 1.09468e+06
-   Durée réelle : 0.208499s
+   Boucles prédites : 4.5669e+07
+   Durée réelle : 8.69628s
    --------------------------------
    Temps demandé : 8.9s
-   Boucles prédites : 1.09573e+06
-   Durée réelle : 0.208561s
+   Boucles prédites : 4.67189e+07
+   Durée réelle : 8.89641s
    --------------------------------
    Temps demandé : 9.1s
-   Boucles prédites : 1.09678e+06
-   Durée réelle : 0.208856s
+   Boucles prédites : 4.77687e+07
+   Durée réelle : 9.09618s
    --------------------------------
    Temps demandé : 9.3s
-   Boucles prédites : 1.09783e+06
-   Durée réelle : 0.209115s
+   Boucles prédites : 4.88186e+07
+   Durée réelle : 9.29611s
    --------------------------------
    Temps demandé : 9.5s
-   Boucles prédites : 1.09888e+06
-   Durée réelle : 0.209417s
+   Boucles prédites : 4.98684e+07
+   Durée réelle : 9.49595s
    --------------------------------
    Temps demandé : 9.7s
-   Boucles prédites : 1.09993e+06
-   Durée réelle : 0.209498s
+   Boucles prédites : 5.09183e+07
+   Durée réelle : 9.69592s
    --------------------------------
    Temps demandé : 9.9s
-   Boucles prédites : 1.10098e+06
-   Durée réelle : 0.209651s
+   Boucles prédites : 5.19682e+07
+   Durée réelle : 9.89586s
    --------------------------------
+
    ```
 
 ## td2_e) Classe consommatrice de CPU durant un temps donné
