@@ -42,6 +42,38 @@ Sortie :
 
 ## b)
 
+Pour le compiler, suivez ces étapes :
+
+1. Naviguez vers le répertoire du projet :
+   ```sh
+   cd MyProject/src/
+
+2. Compilez les fichiers sources :
+   ```sh
+   arm-linux-g++ -Wall -Wextra MainChrono.cpp Chrono.cpp TimespecUtils.cpp -o td1b
+
+3. Transférez le fichier compilé vers le dispositif ARM :
+   ```sh
+   rsync -avz td1b root@192.168.50.43:
+
+Cela transférera le fichier vers la machine cible avec l'adresse IP 192.168.50.43.
+
+4. Connectez-vous au dispositif ARM via SSH :
+   ```sh
+   ssh root@192.168.50.43
+
+5. Exécutez le programme compilé :
+   ```sh
+   ./td1a
+
+Sortie :
+   ```sh
+   Chrono démarré !
+   Temps du tour (secondes): 3s et 442863ns
+   Temps écoulé (secondes): 3s et 536613ns
+   Temps du tour (ms): 3000.54 ms
+   ```
+
 # TD2
 
 # TD3
