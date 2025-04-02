@@ -7,10 +7,10 @@ Exercices du Cours RO05 / td-1 td-2 td-3 td-4
 
 To compile it, follow these steps:
 
-1. **Navigate to the project directory:**
+1. Navigate to the project directory :
    ```sh
    cd MyProject/src/
-
+   ```
 2. Compile the source files
 
 arm-linux-g++ -Wall -Wextra MainPosix.cpp TimespecUtils.cpp -o td1a
