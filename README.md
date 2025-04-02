@@ -64,7 +64,7 @@ Cela transférera le fichier vers la machine cible avec l'adresse IP 192.168.50.
 
 5. Exécutez le programme compilé :
    ```sh
-   ./td1a
+   ./td1b
 
 Sortie :
    ```sh
