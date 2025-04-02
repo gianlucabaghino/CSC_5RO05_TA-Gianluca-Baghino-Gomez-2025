@@ -76,6 +76,61 @@ Sortie :
 
 # TD2
 
+## a) Timers avec callback
+
+Pour le compiler, suivez ces étapes :
+
+1. Naviguez vers le répertoire du projet :
+   ```sh
+   cd MyProject/src/
+
+2. Compilez les fichiers sources :
+   ```sh
+   arm-linux-g++ -Wall -Wextra td2a.cpp -o td2a
+
+3. Transférez le fichier compilé vers le dispositif ARM :
+   ```sh
+   rsync -avz td2a root@192.168.50.43:
+
+Cela transférera le fichier vers la machine cible avec l'adresse IP 192.168.50.43.
+
+4. Connectez-vous au dispositif ARM via SSH :
+   ```sh
+   ssh root@192.168.50.43
+
+5. Exécutez le programme compilé :
+   ```sh
+   ./td2a
+
+Sortie :
+   ```sh
+   Timer démarré ! Appuyez sur Ctrl+C pour quitter manuellement si nécessaire.
+   Compteur: 1
+   Compteur: 2
+   Compteur: 3
+   Compteur: 4
+   Compteur: 5
+   Compteur: 6
+   Compteur: 7
+   Compteur: 8
+   Compteur: 9
+   Compteur: 10
+   Compteur: 11
+   Compteur: 12
+   Compteur: 13
+   Compteur: 14
+   Compteur: 15
+   Le timer a été arrêté après 15 incrémentations !
+   ```
+
+## b) Classe Timer
+
+## c) Fonction simple consommant du CPU
+
+## d) Échantillonage du temps d’exécution d’une fonction
+
+## e) Classe consommatrice de CPU durant un temps donné
+
 # TD3
 
 # TD4
