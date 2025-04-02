@@ -125,6 +125,69 @@ Sortie :
 
 ## b) Classe Timer
 
+**Éléments publics (Interface) :**
+
+- `Timer()` (constructeur) et `~Timer()` (destructeur) doivent être publics pour la gestion du cycle de vie des objets.
+- `start()`, `start_ms()` et `stop()` sont publics car ils forment l'API principale pour le contrôle du chronomètre.
+
+**Élément protégé (Point d'extension) :**
+
+- `callback()` est protégé car c'est une méthode virtuelle pure qui doit être implémentée par les classes dérivées (polymorphisme), et ne doit pas être appelée directement par les utilisateurs.
+
+**Éléments privés (Détails d'implémentation) :**
+
+- `tid` (`timer_t`) est privé pour encapsuler le gestionnaire de chronomètre POSIX.
+- `call_callback()` est privé car c'est une fonction statique utilitaire pour la gestion des signaux POSIX, un mécanisme interne qui ne doit pas être exposé.
+  
+**Pourquoi cette structure ?**
+
+- Les méthodes publiques fournissent une interface simple (démarrer/arrêter).
+- La méthode protégée `callback()` permet la personnalisation dans les classes dérivées.
+- Les membres privés cachent la complexité POSIX de bas niveau, assurant sécurité et encapsulation.
+
+Cela suit la spécification UML tout en respectant les principes de la POO : exposer ce qui est nécessaire, protéger ce qui est extensible, et cacher les détails d'implémentation.
+
+Pour le compiler, suivez ces étapes :
+
+1. Naviguez vers le répertoire du projet :
+   ```sh
+   cd MyProject/src/
+
+2. Compilez les fichiers sources :
+   ```sh
+   arm-linux-g++ -Wall -Wextra td2b.cpp -o td2b
+
+3. Transférez le fichier compilé vers le dispositif ARM :
+   ```sh
+   rsync -avz td2b root@192.168.50.43:
+
+Cela transférera le fichier vers la machine cible avec l'adresse IP 192.168.50.43.
+
+4. Connectez-vous au dispositif ARM via SSH :
+   ```sh
+   ssh root@192.168.50.43
+
+5. Exécutez le programme compilé :
+   ```sh
+   ./td2b
+
+Sortie :
+   ```sh
+   Compte à rebours démarré !
+   Compte à rebours : 10
+   Compte à rebours : 9
+   Compte à rebours : 8
+   Compte à rebours : 7
+   Compte à rebours : 6
+   Compte à rebours : 5
+   Compte à rebours : 4
+   Compte à rebours : 3
+   Compte à rebours : 2
+   Compte à rebours : 1
+   Compte à rebours : 0
+   Compte à rebours terminé !
+   ```
+
 ## c) Fonction simple consommant du CPU
 
 ## d) Échantillonage du temps d’exécution d’une fonction
