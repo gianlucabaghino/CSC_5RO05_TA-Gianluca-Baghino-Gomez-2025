@@ -262,7 +262,7 @@ Cela transférera le fichier vers la machine cible avec l'adresse IP 192.168.50.
 Sortie :
    ```sh
    nLoops = 100
-   Temps d`exécution : 0.007656 millisecondes
+   Temps d'exécution : 0.007656 millisecondes
    
    nLoops = 1000
    Temps d'exécution : 0.060156 millisecondes
