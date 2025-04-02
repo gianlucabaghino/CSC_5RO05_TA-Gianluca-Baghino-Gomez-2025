@@ -5,8 +5,11 @@ Exercices du Cours RO05 / td-1 td-2 td-3 td-4
 
 ## a) Gestion simplifiée du temps Posix
 
-Pour compiler le programme pour une architecture ARM, utilisez la commande suivante : 
+Pour compiler les fichiers `MainPosix.cpp` et `TimespecUtils.cpp` pour une architecture ARM, utilisez la commande suivante :
+
+```sh
 arm-linux-g++ -Wall -Wextra MainPosix.cpp TimespecUtils.cpp -o td1a
+```
 
 ## b)
 
