@@ -38,7 +38,7 @@ Output:
    Temps soustrait : 0 secondes et 999500000 nanosecondes
    Somme des temps : 6 secondes et 500000 nanosecondes
    Différence des temps : 0 secondes et 999500000 nanosecondes
-
+   ```
 
 ## b)
 
