@@ -246,6 +246,8 @@ Sortie :
    Temps d'exécution : 58428.2 millisecondes
    ```
 
+![Courbe des valeurs des temps d’exécution en fonction des valeurs de nLoops](TempsExecution_vs_nLoops_TD2C.png)
+
 
 ## d) Échantillonage du temps d’exécution d’une fonction
 
