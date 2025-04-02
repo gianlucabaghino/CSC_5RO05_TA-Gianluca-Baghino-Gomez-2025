@@ -30,14 +30,14 @@ This will transfer the file to the target machine with the IP address 192.168.50
    ./td1a
 
 Output:
-
-2500.5 ms en secondes : 2500.5 ms
-Temps actuel : 534058 secondes et 333814554 nanosecondes
-Temps négatif : -3 secondes et 499500000 nanosecondes
-Temps additionné : 6 secondes et 500000 nanosecondes
-Temps soustrait : 0 secondes et 999500000 nanosecondes
-Somme des temps : 6 secondes et 500000 nanosecondes
-Différence des temps : 0 secondes et 999500000 nanosecondes
+   ```sh
+   2500.5 ms en secondes : 2500.5 ms
+   Temps actuel : 534058 secondes et 333814554 nanosecondes
+   Temps négatif : -3 secondes et 499500000 nanosecondes
+   Temps additionné : 6 secondes et 500000 nanosecondes
+   Temps soustrait : 0 secondes et 999500000 nanosecondes
+   Somme des temps : 6 secondes et 500000 nanosecondes
+   Différence des temps : 0 secondes et 999500000 nanosecondes
 
 
 ## b)
