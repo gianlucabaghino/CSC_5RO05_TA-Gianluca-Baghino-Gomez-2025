@@ -188,6 +188,45 @@ Sortie :
 
 ## c) Fonction simple consommant du CPU
 
+**Const-Correctness**
+
+`getSample()` doit être `const` car :
+
+- Il ne fait que lire les données membres (`m_iLoop`).
+- Il ne modifie pas l'état de l'objet.
+- Il correspond aux meilleures pratiques C++ pour les méthodes getter.
+
+**Qualification des Variables**
+
+### `m_iLoop` (double) :
+
+- Aucune qualification spéciale nécessaire.
+- Accédé/modifié uniquement dans `runLoop()`.
+- Pas de exigences de sécurité des threads dans ce cas d'utilisation.
+
+### `m_doStop` (bool) :
+
+Doit être `volatile` si :
+
+- Utilisé dans un contexte multithread.
+- Modifié via des signaux/interruptions.
+- Nécessité d'empêcher les optimisations du compilateur.
+
+Pas nécessaire pour un fonctionnement mono-thread.
+
+## Exemple d'Implémentation
+
+```cpp
+class Looper {
+public:
+    double getSample() const { return m_iLoop; } // Getter `const` correct
+    
+private:
+    double m_iLoop;         // Membre régulier
+    volatile bool m_doStop; // Drapeau prenant en compte les threads
+};
+```
+
 Pour le compiler, suivez ces étapes :
 
 1. Naviguez vers le répertoire du projet :
@@ -218,7 +257,8 @@ Cela transférera le fichier vers la machine cible avec l'adresse IP 192.168.50.
    ./td2c 10000000
    ./td2c 100000000
    ./td2c 1000000000
-
+   ```
+   
 Sortie :
    ```sh
    nLoops = 100
