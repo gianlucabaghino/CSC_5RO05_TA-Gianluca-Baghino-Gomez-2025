@@ -1177,11 +1177,11 @@ Sortie :
 
 2. Compilez les fichiers sources :
    ```sh
-   arm-linux-g++ -Wall -Wextra td2e.cpp Chrono.cpp TimespecUtils.cpp -o td2e -lrt -pthread -lm
+   arm-linux-g++ -Wall -Wextra td3d.cpp Chrono.cpp TimespecUtils.cpp CounterTD3.cpp ThreadTD3.cpp MutexTD3.cpp -o td3d -pthread
 
 3. Transférez le fichier compilé vers le dispositif ARM :
    ```sh
-   rsync -avz td2e root@192.168.50.43:
+   rsync -avz td3d root@192.168.50.43:
 
 Cela transférera le fichier vers la machine cible avec l'adresse IP 192.168.50.43.
 
@@ -1191,11 +1191,81 @@ Cela transférera le fichier vers la machine cible avec l'adresse IP 192.168.50.
 
 5. Exécutez le programme compilé :
    ```sh
-   ./td2e
+   ./td3d 1000000 2 0 0
+   ```
+
+- 1000000 => Nombre d'incréments (nLoops variant entre 1000 et 100000000).
+
+- 2 => Nombre de threads (nTasks variant de 1 à 5).
+
+- 0 => Désactiver la protection avec pthread_mutex_t (1 pour activer).
+
+- 0 => Politique d'ordonnancement (0 = SCHED_OTHER, 1 = SCHED_RR, 2 = SCHED_FIFO).
+   
+   ```sh
+   ./td3d 1000000 2 1 0
+   ./td3d 1000000 2 0 1
+   ./td3d 1000000 2 1 1
+   ./td3d 1000000 2 0 2
+   ./td3d 1000000 2 1 2
+
+   ./td3d 1000000 4 0 0
+   ./td3d 1000000 4 1 0
+   ./td3d 1000000 4 0 1
+   ./td3d 1000000 4 1 1
+   ./td3d 1000000 4 0 2
+   ./td3d 1000000 4 1 2
+   ```
 
 Sortie :
    ```sh
-   
+   # ./td3d 1000000 2 0 0
+   Counter value: 1.99975e+06 (Expected: 2e+06, Error: 0.01235%)
+   Execution time: 0.448934 seconds
+
+   # ./td3d 1000000 2 1 0
+   Counter value: 2e+06 (Expected: 2e+06, Error: 0%)
+   Execution time: 2.92088 seconds
+
+   # ./td3d 1000000 2 0 1
+   Counter value: 1.99991e+06 (Expected: 2e+06, Error: 0.00455%)
+   Execution time: 0.449047 seconds
+
+   # ./td3d 1000000 2 1 1
+   Counter value: 2e+06 (Expected: 2e+06, Error: 0%)
+   Execution time: 2.91599 seconds
+
+   # ./td3d 1000000 2 0 2
+   Counter value: 1.99972e+06 (Expected: 2e+06, Error: 0.01395%)
+   Execution time: 0.449457 seconds
+
+   # ./td3d 1000000 2 1 2
+   Counter value: 2e+06 (Expected: 2e+06, Error: 0%)
+   Execution time: 2.87746 seconds
+
+   # ./td3d 1000000 4 0 0
+   Counter value: 2.75323e+06 (Expected: 4e+06, Error: 31.1693%)
+   Execution time: 0.480016 seconds
+
+   # ./td3d 1000000 4 1 0
+   Counter value: 4e+06 (Expected: 4e+06, Error: 0%)
+   Execution time: 6.60856 seconds
+
+   # ./td3d 1000000 4 0 1
+   Counter value: 2.75615e+06 (Expected: 4e+06, Error: 31.0963%)
+   Execution time: 0.479944 seconds
+
+   # ./td3d 1000000 4 1 1
+   Counter value: 4e+06 (Expected: 4e+06, Error: 0%)
+   Execution time: 6.63295 seconds
+
+   # ./td3d 1000000 4 0 2
+   Counter value: 2.75642e+06 (Expected: 4e+06, Error: 31.0894%)
+   Execution time: 0.479986 seconds
+
+   # ./td3d 1000000 4 1 2
+   Counter value: 4e+06 (Expected: 4e+06, Error: 0%)
+   Execution time: 6.60055 seconds
    ```
 
 ## td3_e)
