@@ -55,6 +55,24 @@ Et cela affiche un message de bienvenue, ce qui confirme la connexion réussie a
    MyProject  snap
    ```
 
+Affichage du répertoire de travail avec les fichiers du projet, incluant des fichiers source et d'en-tête pour diverses tâches liées à la synchronisation et au contrôle des threads :
+
+   ```sh
+   ─╾[ensta-ThinkCentre-M800:/home/g.baghino/MyProject/src]╼╼╼╼╼╼╼╼╼╼╼╼╼╼╼╼╼╼╼╼╼╼╼╼╼╼╼╼╼╼╼╼╼╼
+   ╰─╾[g.baghino]╼ ls
+   CalibratorTD3.cpp  LooperTD3.h     ThreadTD3.cpp      td2a.cpp  td3a_1      td3c.cpp
+   CalibratorTD3.h    MainChrono.cpp  ThreadTD3.h        td2b      td3a_1.cpp  td3d
+   Chrono.cpp         MainPosix.cpp   TimerTD3.cpp       td2b.cpp  td3a_2      td3d.cpp
+   Chrono.h           Monitor.cpp     TimerTD3.h         td2c      td3a_2.cpp  td3e
+   CounterTD3.cpp     Monitor.h       TimespecUtils.cpp  td2c.cpp  td3a_3      td3e.cpp
+   CounterTD3.h       MutexTD3.cpp    TimespecUtils.h    td2d      td3a_3.cpp  td4a
+   CpuLoopTD3.cpp     MutexTD3.h      td1a               td2d.cpp  td3b        td4a.cpp
+   CpuLoopTD3.h       Semaphore.cpp   td1b               td2e      td3b.cpp    td4b
+   LooperTD3.cpp      Semaphore.h     td2a               td2e.cpp  td3c        td4b.cpp
+   ╭─╾[ensta-ThinkCentre-M800:/home/g.baghino/MyProject/src]╼╼╼╼╼╼╼╼╼╼╼╼╼╼╼╼╼╼╼╼╼╼╼╼╼╼╼╼╼╼╼╼╼╼
+   ╰─╾[g.baghino]╼ 
+   ```
+
 # TD1
 
 ## td1_a) Gestion simplifiée du temps Posix
@@ -1420,11 +1438,11 @@ Sortie :
 
 2. Compilez les fichiers sources :
    ```sh
-   arm-linux-g++ -Wall -Wextra td2e.cpp Chrono.cpp TimespecUtils.cpp -o td2e -lrt -pthread -lm
+   arm-linux-g++ -Wall -Wextra td4b.cpp Semaphore.cpp MutexTD3.cpp Monitor.cpp ThreadTD3.cpp TimespecUtils.cpp Chrono.cpp CounterTD3.cpp -o td4b -pthread
 
 3. Transférez le fichier compilé vers le dispositif ARM :
    ```sh
-   rsync -avz td2e root@192.168.50.43:
+   rsync -avz td4b root@192.168.50.43:
 
 Cela transférera le fichier vers la machine cible avec l'adresse IP 192.168.50.43.
 
@@ -1432,11 +1450,178 @@ Cela transférera le fichier vers la machine cible avec l'adresse IP 192.168.50.
    ```sh
    ssh root@192.168.50.43
 
+Usage: ./td4b <num_consumers> <num_producers> <tokens_per_producer>
+
 5. Exécutez le programme compilé :
    ```sh
-   ./td2e
+   ./td4b
 
 Sortie :
    ```sh
+   # ./td4b 2 3 5
+   Producer 1 produced a token.
+   Producer 1 produced a token.
+   Producer 3 produced a token.
+   Producer 3 produced a token.
+   Producer 1 produced a token.
+   Producer 1 produced a token.
+   Producer 1 produced a token.
+   Producer 3 produced a token.
+   Producer 2 produced a token.
+   Consumer 1 consumed a token.
+   Consumer 1 consumed a token.
+   Consumer 1 consumed a token.
+   Consumer 1 consumed a token.
+   Consumer 1 consumed a token.
+   Consumer 1 consumed a token.
+   Consumer 1 consumed a token.
+   Consumer 1 consumed a token.
+   Producer 2 produced a token.
+   Producer 2 produced a token.
+   Producer 2 produced a token.
+   Producer 2 produced a token.
+   Producer 3 produced a token.
+   Producer 3 produced a token.
+   Consumer 2 consumed a token.
+   Consumer 2 consumed a token.
+   Consumer 2 consumed a token.
+   Consumer 2 consumed a token.
+   Consumer 2 consumed a token.
+   Consumer 2 consumed a token.
+   Consumer 2 consumed a token.
+   Consumer 1 consumed 8 tokens.
+   Consumer 2 consumed 7 tokens.
+   Simulation complete.
+
    
+   # ./td4b 3 4 6
+   Producer 1 produced a token.
+   Producer 1 produced a token.
+   Producer 1 produced a token.
+   Producer 1 produced a token.
+   Producer 1 produced a token.
+   Producer 1 produced a token.
+   Producer 3 produced a token.
+   Producer 3 produced a token.
+   Producer 3 produced a token.
+   Producer 4 produced a token.
+   Producer 4 produced a token.
+   Producer 4 produced a token.
+   Producer 4 produced a token.
+   Producer 4 produced a token.
+   Producer 4 produced a token.
+   Consumer 1 consumed a token.
+   Consumer 1 consumed a token.
+   Consumer 1 consumed a token.
+   Consumer 1 consumed a token.
+   Consumer 1 consumed a token.
+   Consumer 1 consumed a token.
+   Consumer 1 consumed a token.
+   Consumer 1 consumed a token.
+   Consumer 3 consumed a token.
+   Consumer 2 consumed a token.
+   Producer 2 produced a token.
+   Producer 2 produced a token.
+   Producer 2 produced a token.
+   Producer 2 produced a token.
+   Producer 2 produced a token.
+   Producer 2 produced a token.
+   Consumer 3 consumed a token.
+   Consumer 3 consumed a token.
+   Consumer 3 consumed a token.
+   Consumer 3 consumed a token.
+   Consumer 3 consumed a token.
+   Consumer 3 consumed a token.
+   Consumer 3 consumed a token.
+   Producer 3 produced a token.
+   Producer 3 produced a token.
+   Producer 3 produced a token.
+   Consumer 2 consumed a token.
+   Consumer 2 consumed a token.
+   Consumer 2 consumed a token.
+   Consumer 2 consumed a token.
+   Consumer 2 consumed a token.
+   Consumer 2 consumed a token.
+   Consumer 2 consumed a token.
+   Consumer 1 consumed 8 tokens.
+   Consumer 2 consumed 8 tokens.
+   Consumer 3 consumed 8 tokens.
+   Simulation complete.
+
+   # ./td4b 4 5 7
+   Producer 1 produced a token.
+   Producer 1 produced a token.
+   Producer 1 produced a token.
+   Producer 1 produced a token.
+   Producer 1 produced a token.
+   Producer 1 produced a token.
+   Producer 1 produced a token.
+   Producer 3 produced a token.
+   Producer 3 produced a token.
+   Producer 3 produced a token.
+   Producer 3 produced a token.
+   Producer 3 produced a token.
+   Producer 3 produced a token.
+   Producer 3 produced a token.
+   Consumer 1 consumed a token.
+   Consumer 1 consumed a token.
+   Consumer 1 consumed a token.
+   Consumer 1 consumed a token.
+   Consumer 1 consumed a token.
+   Consumer 1 consumed a token.
+   Consumer 1 consumed a token.
+   Producer 2 produced a token.
+   Producer 2 produced a token.
+   Producer 2 produced a token.
+   Producer 2 produced a token.
+   Producer 2 produced a token.
+   Producer 2 produced a token.
+   Producer 2 produced a token.
+   Producer 4 produced a token.
+   Producer 4 produced a token.
+   Producer 4 produced a token.
+   Producer 4 produced a token.
+   Producer 4 produced a token.
+   Consumer 3 consumed a token.
+   Consumer 3 consumed a token.
+   Consumer 3 consumed a token.
+   Consumer 3 consumed a token.
+   Consumer 3 consumed a token.
+   Consumer 3 consumed a token.
+   Consumer 3 consumed a token.
+   Consumer 3 consumed a token.
+   Consumer 3 consumed a token.
+   Consumer 4 consumed a token.
+   Consumer 4 consumed a token.
+   Producer 4 produced a token.
+   Producer 4 produced a token.
+   Producer 5 produced a token.
+   Producer 5 produced a token.
+   Producer 5 produced a token.
+   Producer 5 produced a token.
+   Producer 5 produced a token.
+   Producer 5 produced a token.
+   Producer 5 produced a token.
+   Consumer 4 consumed a token.
+   Consumer 4 consumed a token.
+   Consumer 4 consumed a token.
+   Consumer 4 consumed a token.
+   Consumer 4 consumed a token.
+   Consumer 4 consumed a token.
+   Consumer 2 consumed a token.
+   Consumer 1 consumed a token.
+   Consumer 1 consumed a token.
+   Consumer 1 consumed 9 tokens.
+   Consumer 2 consumed a token.
+   Consumer 2 consumed a token.
+   Consumer 2 consumed a token.
+   Consumer 2 consumed a token.
+   Consumer 2 consumed a token.
+   Consumer 2 consumed a token.
+   Consumer 2 consumed a token.
+   Consumer 2 consumed a token.
+   Consumer 2 consumed 9 tokens.
+   Consumer 3 consumed 9 tokens.
+   Consumer 4 consumed 8 tokens.
+   Simulation complete.
    ```
