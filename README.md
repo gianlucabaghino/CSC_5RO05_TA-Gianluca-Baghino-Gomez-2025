@@ -697,11 +697,11 @@ Sortie :
 
 2. Compilez les fichiers sources :
    ```sh
-   arm-linux-g++ -Wall -Wextra td2e.cpp Chrono.cpp TimespecUtils.cpp -o td2e -lrt -pthread -lm
+   arm-linux-g++ -Wall -Wextra td3a_2.cpp -o td3a_2 -pthread
 
 3. Transférez le fichier compilé vers le dispositif ARM :
    ```sh
-   rsync -avz td2e root@192.168.50.43:
+   rsync -avz td3a_2 root@192.168.50.43:
 
 Cela transférera le fichier vers la machine cible avec l'adresse IP 192.168.50.43.
 
@@ -711,11 +711,24 @@ Cela transférera le fichier vers la machine cible avec l'adresse IP 192.168.50.
 
 5. Exécutez le programme compilé :
    ```sh
-   ./td2e
+   ./td3a_2
 
 Sortie :
    ```sh
-   
+   Type 's' to stop: s
+   Counter value: 1.95446e+07
+
+   Type 's' to stop: s
+   Counter value: 1.81169e+07
+
+   Type 's' to stop: s
+   Counter value: 1.93251e+07
+
+   Type 's' to stop: s
+   Counter value: 1.85321e+07
+
+   Type 's' to stop: s
+   Counter value: 1.82106e+07
    ```
 
 ## td3_a_3)
