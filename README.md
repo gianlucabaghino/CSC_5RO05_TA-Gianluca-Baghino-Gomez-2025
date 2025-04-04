@@ -1,6 +1,60 @@
 # CSC_5RO05_TA-Gianluca-Baghino-Gomez-2025
 Exercices du Cours RO05 / td-1 td-2 td-3 td-4
 
+J’ai configuré le fichier ~/.ssh/config pour faciliter la connexion avec VSCode, avec des blocs Host comme :
+   ```sh
+   Host ensta-ssh
+     HostName ssh.ensta.fr
+     User g.baghino
+   
+   Host rpi2b-dev
+     HostName 147.250.8.198
+     User g.baghino
+   
+   Host rpi2b-dev-remote
+     HostName 147.250.8.198
+     User g.baghino
+     ProxyJump ensta-ssh
+   ```
+
+Pour me connecter à la machine de développement rpi2b-dev (IP : 147.250.8.198), j’ai utilisé la commande suivante depuis mon terminal :
+   ```sh
+   ssh g.baghino@147.250.8.198
+   ```
+
+Et cela affiche un message de bienvenue, ce qui confirme la connexion réussie au poste distant :
+   ```sh
+   gianluca@gianluca-ASUS-TUF-Gaming-A15-FA506QM-FA506QM:~$ ssh g.baghino@147.250.8.198
+   g.baghino@147.250.8.198's password: 
+   Welcome to Ubuntu 24.04.2 LTS (GNU/Linux 6.11.0-19-generic x86_64)
+   
+    * Documentation:  https://help.ubuntu.com
+    * Management:     https://landscape.canonical.com
+    * Support:        https://ubuntu.com/pro
+   
+   1 device has a firmware upgrade available.
+   Run `fwupdmgr get-upgrades` for more information.
+   
+   
+   La maintenance de sécurité étendue pour Applications n'est pas activée.
+   
+   32 mises à jour peuvent être appliquées immédiatement.
+   Pour afficher ces mises à jour supplémentaires, exécuter : apt list --upgradable
+   
+   16 mises à jour de sécurité supplémentaires peuvent être appliquées avec ESM Apps.
+   En savoir plus sur l'activation du service ESM Apps at https://ubuntu.com/esm
+   
+   *** Le système doit être redémarré ***
+   
+   1 device has a firmware upgrade available.
+   Run `fwupdmgr get-upgrades` for more information.
+   
+   Last login: Wed Apr  2 23:31:21 2025 from 147.250.238.247
+   ╭─╾[ensta-ThinkCentre-M800:/home/g.baghino]╼╼╼╼╼╼╼╼╼╼╼╼╼╼╼╼╼╼╼╼╼╼╼╼╼╼╼╼╼╼╼╼╼╼╼╼╼╼╼╼╼╼╼╼╼╼╼╼
+   ╰─╾[g.baghino]╼ ls
+   MyProject  snap
+   ```
+
 # TD1
 
 ## td1_a) Gestion simplifiée du temps Posix
@@ -541,7 +595,54 @@ Cela transférera le fichier vers la machine cible avec l'adresse IP 192.168.50.
 
 Sortie :
    ```sh
-   
+   Demandé: 0.5s | Réel: 0.501949s | Erreur: 0.389739%
+   Demandé: 0.7s | Réel: 0.699873s | Erreur: 0.0181621%
+   Demandé: 0.9s | Réel: 0.899594s | Erreur: 0.0451216%
+   Demandé: 1.1s | Réel: 1.09954s | Erreur: 0.0417472%
+   Demandé: 1.3s | Réel: 1.29941s | Erreur: 0.0453446%
+   Demandé: 1.5s | Réel: 1.49924s | Erreur: 0.0505243%
+   Demandé: 1.7s | Réel: 1.6993s | Erreur: 0.040959%
+   Demandé: 1.9s | Réel: 1.89916s | Erreur: 0.0440488%
+   Demandé: 2.1s | Réel: 2.09901s | Erreur: 0.0473364%
+   Demandé: 2.3s | Réel: 2.29886s | Erreur: 0.0493909%
+   Demandé: 2.5s | Réel: 2.49869s | Erreur: 0.0525625%
+   Demandé: 2.7s | Réel: 2.69868s | Erreur: 0.0487809%
+   Demandé: 2.9s | Réel: 2.89859s | Erreur: 0.0487392%
+   Demandé: 3.1s | Réel: 3.09863s | Erreur: 0.0442222%
+   Demandé: 3.3s | Réel: 3.29836s | Erreur: 0.0496007%
+   Demandé: 3.5s | Réel: 3.49825s | Erreur: 0.0500283%
+   Demandé: 3.7s | Réel: 3.69835s | Erreur: 0.0444975%
+   Demandé: 3.9s | Réel: 3.89798s | Erreur: 0.0516907%
+   Demandé: 4.1s | Réel: 4.0986s | Erreur: 0.034262%
+   Demandé: 4.3s | Réel: 4.29793s | Erreur: 0.0481141%
+   Demandé: 4.5s | Réel: 4.49774s | Erreur: 0.0503241%
+   Demandé: 4.7s | Réel: 4.69768s | Erreur: 0.0493817%
+   Demandé: 4.9s | Réel: 4.89741s | Erreur: 0.0529124%
+   Demandé: 5.1s | Réel: 5.09745s | Erreur: 0.0500337%
+   Demandé: 5.3s | Réel: 5.29728s | Erreur: 0.0513129%
+   Demandé: 5.5s | Réel: 5.49729s | Erreur: 0.0492927%
+   Demandé: 5.7s | Réel: 5.69703s | Erreur: 0.0521492%
+   Demandé: 5.9s | Réel: 5.89719s | Erreur: 0.0476077%
+   Demandé: 6.1s | Réel: 6.09705s | Erreur: 0.0483368%
+   Demandé: 6.3s | Réel: 6.29703s | Erreur: 0.0470759%
+   Demandé: 6.5s | Réel: 6.49673s | Erreur: 0.0502725%
+   Demandé: 6.7s | Réel: 6.69651s | Erreur: 0.0521036%
+   Demandé: 6.9s | Réel: 6.8966s | Erreur: 0.0492965%
+   Demandé: 7.1s | Réel: 7.0964s | Erreur: 0.0507549%
+   Demandé: 7.3s | Réel: 7.29628s | Erreur: 0.0509554%
+   Demandé: 7.5s | Réel: 7.49615s | Erreur: 0.051325%
+   Demandé: 7.7s | Réel: 7.69618s | Erreur: 0.0495935%
+   Demandé: 7.9s | Réel: 7.89618s | Erreur: 0.0483242%
+   Demandé: 8.1s | Réel: 8.09598s | Erreur: 0.0496837%
+   Demandé: 8.3s | Réel: 8.29577s | Erreur: 0.0509934%
+   Demandé: 8.5s | Réel: 8.49567s | Erreur: 0.0509688%
+   Demandé: 8.7s | Réel: 8.69551s | Erreur: 0.0516499%
+   Demandé: 8.9s | Réel: 8.89552s | Erreur: 0.0503529%
+   Demandé: 9.1s | Réel: 9.09536s | Erreur: 0.0509393%
+   Demandé: 9.3s | Réel: 9.29525s | Erreur: 0.0511252%
+   Demandé: 9.5s | Réel: 9.49552s | Erreur: 0.0471201%
+   Demandé: 9.7s | Réel: 9.69506s | Erreur: 0.0509359%
+   Demandé: 9.9s | Réel: 9.89483s | Erreur: 0.052237%
    ```
 
 # TD3
