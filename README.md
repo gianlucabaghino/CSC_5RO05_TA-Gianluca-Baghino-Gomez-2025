@@ -1276,11 +1276,11 @@ Sortie :
 
 2. Compilez les fichiers sources :
    ```sh
-   arm-linux-g++ -Wall -Wextra td2e.cpp Chrono.cpp TimespecUtils.cpp -o td2e -lrt -pthread -lm
+   arm-linux-g++ -Wall -Wextra td3e.cpp TimerTD3.cpp LooperTD3.cpp CalibratorTD3.cpp CpuLoopTD3.cpp ThreadTD3.cpp MutexTD3.cpp Chrono.cpp TimespecUtils.cpp CounterTD3.cpp -o td3e -pthread
 
 3. Transférez le fichier compilé vers le dispositif ARM :
    ```sh
-   rsync -avz td2e root@192.168.50.43:
+   rsync -avz td3e root@192.168.50.43:
 
 Cela transférera le fichier vers la machine cible avec l'adresse IP 192.168.50.43.
 
@@ -1290,12 +1290,91 @@ Cela transférera le fichier vers la machine cible avec l'adresse IP 192.168.50.
 
 5. Exécutez le programme compilé :
    ```sh
-   ./td2e
+   ./td3e
+   ./td3e no-priority
 
 Sortie :
    ```sh
-   
+   # ./td3e
+   Running with priority inheritance protection (Pass 2)
+   Task C started at time: 0.044948 ms
+   Task C waiting for the resource
+   Task C locked the resource at time: 2000.48 ms
+   Task C released the resource at time: 2005.21 ms
+   Task A started at time: 3000.35 ms
+   Task B started at time: 3000.07 ms
+   Task C completed at time: 3005.35 ms
+   Task C elapsed time: 3005.41 ms
+   Task A waiting for the resource
+   Task A locked the resource at time: Task B finished CPU work at time: 4000.54 ms
+   4000.17 ms
+   Task B completed at time: 4002.48 ms
+   Task B elapsed time: 4002.53 ms
+   Task A released the resource at time: 4003.1 ms
+   Task A completed at time: 6003.28 ms
+   Task A elapsed time: 6003.37 ms
+
+   # ./td3e no-priority
+   Running with no priority inheritance protection (Pass 1)
+   Task C started at time: 0.044428 ms
+   Task C waiting for the resource
+   Task C locked the resource at time: 2000.43 ms
+   Task C released the resource at time: 2004.85 ms
+   Task A started at time: 3000.14 ms
+   Task B started at time: 3000.06 ms
+   Task C completed at time: 3004.94 ms
+   Task C elapsed time: 3005 ms
+   Task A waiting for the resource
+   Task A locked the resource at time: 4000.3 ms
+   Task B finished CPU work at time: 4000.17 ms
+   Task A released the resource at time: 4002.57 ms
+   Task B completed at time: 4002.44 ms
+   Task B elapsed time: 4002.48 ms
+   Task A completed at time: 6002.66 ms
+   Task A elapsed time: 6002.74 ms
    ```
+
+1. Avec protection d'héritage de priorité (./td3e)
+
+Ordre d'exécution des tâches :
+
+- Tâche C démarre à 0.044948 ms, attend la ressource, et la verrouille à 2000.48 ms. Elle la libère à 2005.21 ms.
+
+- Tâche A et Tâche B commencent à des moments proches, mais Tâche B commence avant Tâche A (à 3000.07 ms contre 3000.35 ms pour la Tâche A). Cela peut être dû au planificateur qui donne la priorité à Tâche B, même si les tâches sont presque simultanées.
+
+- Tâche C se termine à 3005.35 ms, avec un temps écoulé de 3005.41 ms.
+  
+- Tâche A attend la ressource, puis la verrouille à 4000.17 ms. Elle libère la ressource à 4003.1 ms et termine à 6003.28 ms.
+
+- Tâche B termine son travail CPU à 4000.54 ms, ce qui est un peu après Tâche A. Cela semble un peu contre-intuitif, mais il est possible que Tâche A ait été mise en attente par le mécanisme de priorité héritée, ce qui a retardé son démarrage.
+
+Comportement avec héritage de priorité :
+
+- L'héritage de priorité permet à Tâche A de récupérer la priorité après que Tâche B ait terminé son travail CPU. Cela explique pourquoi Tâche A commence son accès à la ressource après Tâche B.
+
+2. Sans protection d'héritage de priorité (./td3e no-priority)
+
+Ordre d'exécution des tâches :
+
+- Tâche C commence à 0.044428 ms, attend la ressource, la verrouille à 2000.43 ms et la libère à 2004.85 ms.
+
+- Comme dans la première exécution, Tâche A et Tâche B commencent presque en même temps (à 3000.14 ms pour A et 3000.06 ms pour B).
+
+- Tâche C se termine à 3004.94 ms avec un temps écoulé de 3005 ms.
+
+- Tâche A attend la ressource et la verrouille à 4000.3 ms. Elle libère la ressource à 4002.57 ms et se termine à 6002.66 ms.
+
+- Tâche B termine à 4002.44 ms, mais son temps CPU est plus court, car elle est immédiatement préemptée par la ressource partagée.
+
+Comportement sans héritage de priorité :
+
+- Sans héritage de priorité, Tâche B peut prendre plus de temps CPU, et Tâche A attend plus longtemps pour obtenir la ressource, mais elle semble toujours commencer son travail à peu près dans l'ordre attendu. Le manque de priorité héritée signifie que les tâches ne sont pas forcées de suivre un ordre strict de priorité basé sur leurs demandes d'accès à la ressource.
+
+Conclusion générale :
+
+- Avec héritage de priorité, Tâche A obtient la ressource après que Tâche B ait terminé son travail, ce qui peut entraîner une légère attente pour Tâche A.
+
+- Sans héritage de priorité, il y a moins de contrôle sur l'ordre d'exécution des tâches, et le planificateur laisse Tâche B terminer son travail CPU avant que Tâche A ne puisse obtenir la ressource. Cependant, les timings sont un peu plus linéaires.
 
 # TD4
 
