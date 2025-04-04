@@ -1,7 +1,7 @@
 # CSC_5RO05_TA-Gianluca-Baghino-Gomez-2025
 Exercices du Cours RO05 / td-1 td-2 td-3 td-4
 
-J’ai configuré le fichier ~/.ssh/config pour faciliter la connexion avec VSCode, avec des blocs Host comme :
+J’ai configuré le fichier `~/.ssh/config` pour faciliter la connexion avec VSCode, avec des blocs Host comme :
    ```sh
    Host ensta-ssh
      HostName ssh.ensta.fr
@@ -17,7 +17,7 @@ J’ai configuré le fichier ~/.ssh/config pour faciliter la connexion avec VSCo
      ProxyJump ensta-ssh
    ```
 
-Pour me connecter à la machine de développement rpi2b-dev (IP : 147.250.8.198), j’ai utilisé la commande suivante depuis mon terminal :
+Pour me connecter à la machine de développement rpi2b-dev (`IP : 147.250.8.198`), j’ai utilisé la commande suivante depuis mon terminal :
    ```sh
    ssh g.baghino@147.250.8.198
    ```
