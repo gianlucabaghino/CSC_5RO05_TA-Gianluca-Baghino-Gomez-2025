@@ -1120,11 +1120,11 @@ Sortie (Premier essai) :
 
 2. Compilez les fichiers sources :
    ```sh
-   arm-linux-g++ -Wall -Wextra td2e.cpp Chrono.cpp TimespecUtils.cpp -o td2e -lrt -pthread -lm
+   arm-linux-g++ -Wall -Wextra td3c.cpp TimespecUtils.cpp Chrono.cpp MutexTD3.cpp ThreadTD3.cpp CounterTD3.cpp -o td3c -pthread
 
 3. Transférez le fichier compilé vers le dispositif ARM :
    ```sh
-   rsync -avz td2e root@192.168.50.43:
+   rsync -avz td3c root@192.168.50.43:
 
 Cela transférera le fichier vers la machine cible avec l'adresse IP 192.168.50.43.
 
@@ -1134,11 +1134,39 @@ Cela transférera le fichier vers la machine cible avec l'adresse IP 192.168.50.
 
 5. Exécutez le programme compilé :
    ```sh
-   ./td2e
+   ./td3c
 
 Sortie :
    ```sh
-   
+   Type 's' to stop: s
+   Counter value: 3.68555e+06
+   Thread 1 execution time: 3046.69 ms
+   Thread 2 execution time: 3046.52 ms
+   Thread 3 execution time: 3046.25 ms
+
+   Type 's' to stop: s
+   Counter value: 3.32343e+06
+   Thread 1 execution time: 2840.64 ms
+   Thread 2 execution time: 2840.45 ms
+   Thread 3 execution time: 2840.27 ms
+
+   Type 's' to stop: s
+   Counter value: 3.58756e+06
+   Thread 1 execution time: 3138.69 ms
+   Thread 2 execution time: 3138.53 ms
+   Thread 3 execution time: 3138.29 ms
+
+   Type 's' to stop: s
+   Counter value: 3.83885e+06
+   Thread 1 execution time: 3204.29 ms
+   Thread 2 execution time: 3204.05 ms
+   Thread 3 execution time: 3203.83 ms
+
+   Type 's' to stop: s
+   Counter value: 3.27935e+06
+   Thread 1 execution time: 2736.5 ms
+   Thread 2 execution time: 2736.29 ms
+   Thread 3 execution time: 2736.12 ms
    ```
 
 ## td3_d)
