@@ -781,11 +781,11 @@ Sortie :
 
 2. Compilez les fichiers sources :
    ```sh
-   arm-linux-g++ -Wall -Wextra td2e.cpp Chrono.cpp TimespecUtils.cpp -o td2e -lrt -pthread -lm
+   arm-linux-g++ -Wall -Wextra td3b.cpp MutexTD3.cpp TimespecUtils.cpp -o td3b -pthread
 
 3. Transférez le fichier compilé vers le dispositif ARM :
    ```sh
-   rsync -avz td2e root@192.168.50.43:
+   rsync -avz td3b root@192.168.50.43:
 
 Cela transférera le fichier vers la machine cible avec l'adresse IP 192.168.50.43.
 
@@ -795,11 +795,321 @@ Cela transférera le fichier vers la machine cible avec l'adresse IP 192.168.50.
 
 5. Exécutez le programme compilé :
    ```sh
-   ./td2e
+   ./td3b
 
-Sortie :
+Sortie (Premier essai) :
    ```sh
-   
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Exception de délai d'attente : Timeout après 2000 ms
+   Exception de délai d'attente : Timeout après 2000 ms
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Valeur finale du compteur : 98
+   ```
+
+   Sortie (Deuxième essai) :
+   ```sh
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Valeur finale du compteur : 100
+   ```
+
+   Sortie (Troisième essai) :
+   ```sh
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Exception de délai d'attente : Timeout après 2000 ms
+   Exception de délai d'attente : Timeout après 2000 ms
+   Exception de délai d'attente : Timeout après 2000 ms
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Exception de délai d'attente : Timeout après 2000 ms
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Thread a verrouillé le mutex, incrémentation du compteur
+   Valeur finale du compteur : 96
    ```
 
 ## td3_c)
