@@ -754,6 +754,7 @@ Sortie :
 L’ordre de grandeur est autour de 10^7. C’est environ 10 fois moins qu’avec une seule tâche. Cela montre que quand plusieurs tâches accèdent à une ressource partagée, elles se ralentissent entre elles à cause des synchronisations nécessaires (accès concurrent au compteur).
 
 Résultat : le compteur augmente moins vite, même avec plusieurs tâches.
+
 Conclusion : Plus de tâches ≠ plus de performance quand il y a une ressource partagée.
 
 ## td3_a_3) Création et utilisation de tâches et de mutex Posix
@@ -799,9 +800,10 @@ Sortie :
    ```
 
 On constate une grosse différence! Avec le mutex, la valeur du compteur est beaucoup plus basse (environ 5,6 millions) par rapport à avant (environ 18-19 millions avec 3 tâches sans mutex, et environ 145 millions avec 1 seule tâche sans synchronisation). Cela montre que la synchronisation avec un mutex ralentit fortement l’incrémentation, car les tâches passent leur temps à attendre le verrou.
+
 Conclusion : Protéger les accès avec un mutex assure la sécurité, mais réduit les performances quand plusieurs tâches accèdent à la même ressource.
 
-## td3_b)
+## td3_b) Classe Mutex
 
 1. Naviguez vers le répertoire du projet :
    ```sh
@@ -1140,7 +1142,7 @@ Sortie (Premier essai) :
    Valeur finale du compteur : 96
    ```
 
-## td3_c)
+## td3_c) Classe Thread
 
 1. Naviguez vers le répertoire du projet :
    ```sh
@@ -1197,7 +1199,7 @@ Sortie :
    Thread 3 execution time: 2736.12 ms
    ```
 
-## td3_d)
+## td3_d) Accès concurrent à des données partagées
 
 1. Naviguez vers le répertoire du projet :
    ```sh
@@ -1296,7 +1298,41 @@ Sortie :
    Execution time: 6.60055 seconds
    ```
 
-## td3_e)
+1. Sans protection (protect = 0) :
+
+    - La valeur du compteur est incorrecte quand il y a plusieurs tâches (erreurs de 0,01% à plus de 31%).
+
+    - Cela vient du problème de concurrence : plusieurs threads modifient la même variable en même temps sans coordination.
+
+    - Le temps d’exécution est faible (environ 0,45s), car aucune synchronisation ne ralentit les threads.
+
+2. Avec protection (protect = 1) :
+
+    - Le compteur est toujours correct (erreur = 0%).
+
+    - Mais le temps d’exécution est plus long (de 2,9s à 6,6s), car les threads doivent attendre le mutex pour accéder à la variable.
+
+3. Influence du nombre de tâches (nTasks) :
+
+    - Plus il y a de threads (4 au lieu de 2), plus le temps augmente en mode protégé à cause de la contention sur le mutex.
+
+    - En mode non protégé, plus de threads = plus d’erreurs sur le résultat.
+
+4. Politique d’ordonnancement (SCHED_OTHER, RR, FIFO) :
+
+    - Très peu d’impact sur les résultats dans ce test.
+
+    - Les temps d’exécution restent presque identiques pour chaque politique.
+  
+5. Conclusion :
+
+    - La protection avec mutex garantit la justesse du résultat, mais elle ralentit le programme.
+
+    - Sans protection, le programme est plus rapide, mais le résultat est faux quand il y a plusieurs threads.
+
+    - Les politiques d’ordonnancement n’ont pas beaucoup d’effet ici, car les threads ne font que de l’incrémentation simple.
+
+## td3_e) Inversion de priorité
 
 1. Naviguez vers le répertoire du projet :
    ```sh
@@ -1406,7 +1442,7 @@ Sortie :
 
 # TD4
 
-## td4_a)
+## td4_a) Création de la classe Monitor
 
 1. Naviguez vers le répertoire du projet :
    ```sh
@@ -1440,7 +1476,7 @@ Sortie :
    # 
    ```
 
-## td4_b)
+## td4_b) Création d’une classe Sémaphore
 
 1. Naviguez vers le répertoire du projet :
    ```sh
@@ -1635,3 +1671,57 @@ Sortie :
    Consumer 4 consumed 8 tokens.
    Simulation complete.
    ```
+
+ 1. Scénario : ./td4b 2 3 5
+
+     - Producteurs : 3 producteurs, chacun produisant 5 jetons.
+
+     - Consommateurs : 2 consommateurs.
+
+    Sortie :
+   
+        - Le consommateur 1 consomme 8 jetons, et le consommateur 2 en consomme 7.
+   
+    Explication :
+   
+        - Jetons produits : 3 producteurs * 5 jetons = 15 jetons.
+   
+        - Jetons consommés : 8 par le consommateur 1 et 7 par le consommateur 2 = 15 jetons.
+   
+        - Pas de perte de jetons
+
+ 2. Scénario : ./td4b 3 4 6
+
+     - Producteurs : 4 producteurs, chacun produisant 6 jetons.
+
+     - Consommateurs : 3 consommateurs.
+
+    Sortie :
+   
+        - Le consommateur 1 consomme 8 jetons, le consommateur 2 en consomme 8 et le consommateur 3 aussi 8.
+   
+    Explication :
+   
+        - Jetons produits : 4 producteurs * 6 jetons = 24 jetons.
+   
+        - Jetons consommés : 8 jetons par consommateur * 3 consommateurs = 24 jetons.
+   
+        - Pas de perte de jetons
+
+ 3. Scénario : ./td4b 4 5 7
+
+     - Producteurs : 5 producteurs, chacun produisant 7 jetons.
+
+     - Consommateurs : 4 consommateurs.
+
+    Sortie :
+   
+        - Le consommateur 1 consomme 9 jetons, le consommateur 2 en consomme 9, le consommateur 3 en consomme 9, et le consommateur 4 consomme 8 jetons.
+   
+    Explication :
+   
+        - Jetons produits : 5 producteurs * 7 jetons = 35 jetons.
+   
+        - Jetons consommés : 9 jetons par consommateur 1, 2 et 3, et 8 jetons par le consommateur 4 = 35 jetons.
+   
+        - Pas de perte de jetons
