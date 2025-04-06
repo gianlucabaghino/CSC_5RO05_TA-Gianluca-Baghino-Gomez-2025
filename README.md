@@ -1673,7 +1673,7 @@ Sortie :
    Simulation complete.
    ```
 
- 1. Scénario : `./td4b 2 3 5`
+ **1. Scénario :** `./td4b 2 3 5`
 
      - Producteurs : 3 producteurs, chacun produisant 5 jetons.
 
@@ -1693,7 +1693,7 @@ Sortie :
 
 
 
- 2. Scénario : `./td4b 3 4 6`
+ **2. Scénario :** `./td4b 3 4 6`
 
      - Producteurs : 4 producteurs, chacun produisant 6 jetons.
 
@@ -1713,7 +1713,7 @@ Sortie :
 
 
 
- 3. Scénario : `./td4b 4 5 7`
+ **3. Scénario :** `./td4b 4 5 7`
 
      - Producteurs : 5 producteurs, chacun produisant 7 jetons.
 
