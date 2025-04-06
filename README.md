@@ -1673,56 +1673,56 @@ Sortie :
    Simulation complete.
    ```
 
- 1. Scénario : ./td4b 2 3 5
+ 1. Scénario : `./td4b 2 3 5`
 
      - Producteurs : 3 producteurs, chacun produisant 5 jetons.
 
      - Consommateurs : 2 consommateurs.
 
-    Sortie :
-   
-        - Le consommateur 1 consomme 8 jetons, et le consommateur 2 en consomme 7.
-   
-    Explication :
-   
-        - Jetons produits : 3 producteurs * 5 jetons = 15 jetons.
-   
-        - Jetons consommés : 8 par le consommateur 1 et 7 par le consommateur 2 = 15 jetons.
-   
-        - Pas de perte de jetons
+ Sortie :
 
- 2. Scénario : ./td4b 3 4 6
+   - Le consommateur 1 consomme 8 jetons, et le consommateur 2 en consomme 7.
+
+ Explication :
+
+  - Jetons produits : 3 producteurs * 5 jetons = 15 jetons.
+
+  - Jetons consommés : 8 par le consommateur 1 et 7 par le consommateur 2 = 15 jetons.
+
+  - Pas de perte de jetons
+
+ 2. Scénario : `./td4b 3 4 6`
 
      - Producteurs : 4 producteurs, chacun produisant 6 jetons.
 
      - Consommateurs : 3 consommateurs.
 
-    Sortie :
-   
-        - Le consommateur 1 consomme 8 jetons, le consommateur 2 en consomme 8 et le consommateur 3 aussi 8.
-   
-    Explication :
-   
-        - Jetons produits : 4 producteurs * 6 jetons = 24 jetons.
-   
-        - Jetons consommés : 8 jetons par consommateur * 3 consommateurs = 24 jetons.
-   
-        - Pas de perte de jetons
+ Sortie :
 
- 3. Scénario : ./td4b 4 5 7
+  - Le consommateur 1 consomme 8 jetons, le consommateur 2 en consomme 8 et le consommateur 3 aussi 8.
+
+ Explication :
+
+  - Jetons produits : 4 producteurs * 6 jetons = 24 jetons.
+
+  - Jetons consommés : 8 jetons par consommateur * 3 consommateurs = 24 jetons.
+
+  - Pas de perte de jetons
+
+ 3. Scénario : `./td4b 4 5 7`
 
      - Producteurs : 5 producteurs, chacun produisant 7 jetons.
 
      - Consommateurs : 4 consommateurs.
 
-    Sortie :
-   
-        - Le consommateur 1 consomme 9 jetons, le consommateur 2 en consomme 9, le consommateur 3 en consomme 9, et le consommateur 4 consomme 8 jetons.
-   
-    Explication :
-   
-        - Jetons produits : 5 producteurs * 7 jetons = 35 jetons.
-   
-        - Jetons consommés : 9 jetons par consommateur 1, 2 et 3, et 8 jetons par le consommateur 4 = 35 jetons.
-   
-        - Pas de perte de jetons
+ Sortie :
+
+  - Le consommateur 1 consomme 9 jetons, le consommateur 2 en consomme 9, le consommateur 3 en consomme 9, et le consommateur 4 consomme 8 jetons.
+
+ Explication :
+
+  - Jetons produits : 5 producteurs * 7 jetons = 35 jetons.
+
+  - Jetons consommés : 9 jetons par consommateur 1, 2 et 3, et 8 jetons par le consommateur 4 = 35 jetons.
+
+  - Pas de perte de jetons
