@@ -753,7 +753,6 @@ Sortie :
 
 L’ordre de grandeur est autour de 10^7. C’est environ 10 fois moins qu’avec une seule tâche. Cela montre que quand plusieurs tâches accèdent à une ressource partagée, elles se ralentissent entre elles à cause des synchronisations nécessaires (accès concurrent au compteur).
 
-Les tâches doivent attendre leur tour à cause du mutex, donc elles se bloquent entre elles.
 Résultat : le compteur augmente moins vite, même avec plusieurs tâches.
 Conclusion : Plus de tâches ≠ plus de performance quand il y a une ressource partagée.
 
