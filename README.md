@@ -1691,6 +1691,8 @@ Sortie :
 
   - Pas de perte de jetons
 
+
+
  2. Scénario : `./td4b 3 4 6`
 
      - Producteurs : 4 producteurs, chacun produisant 6 jetons.
@@ -1708,6 +1710,8 @@ Sortie :
   - Jetons consommés : 8 jetons par consommateur * 3 consommateurs = 24 jetons.
 
   - Pas de perte de jetons
+
+
 
  3. Scénario : `./td4b 4 5 7`
 
