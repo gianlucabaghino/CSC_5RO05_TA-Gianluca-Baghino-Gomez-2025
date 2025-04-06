@@ -1594,6 +1594,7 @@ Sortie :
    Consumer 3 consumed 8 tokens.
    Simulation complete.
 
+
    # ./td4b 4 5 7
    Producer 1 produced a token.
    Producer 1 produced a token.
