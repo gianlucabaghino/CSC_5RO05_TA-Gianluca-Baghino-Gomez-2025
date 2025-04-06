@@ -291,11 +291,11 @@ Pas nécessaire pour un fonctionnement mono-thread.
 ```cpp
 class Looper {
 public:
-    double getSample() const { return m_iLoop; } // Getter `const` correct
+    double getSample() const { return m_iLoop; } 
     
 private:
-    double m_iLoop;         // Membre régulier
-    volatile bool m_doStop; // Drapeau prenant en compte les threads
+    double m_iLoop;         
+    volatile bool m_doStop; 
 };
 ```
 
@@ -665,7 +665,7 @@ Sortie :
 
 # TD3
 
-## td3_a_1)
+## td3_a_1) Création et utilisation de tâches et de mutex Posix
 
 1. Naviguez vers le répertoire du projet :
    ```sh
@@ -707,7 +707,9 @@ Sortie :
    Counter value: 1.42248e+08
    ```
 
-## td3_a_2)
+L’ordre de grandeur de la valeur du compteur est environ 10^8. Cela signifie qu’en 3 secondes, le compteur peut atteindre entre 120 et 180 millions, selon le moment exact où j’arrête le programme.
+
+## td3_a_2) Création et utilisation de tâches et de mutex Posix
 
 1. Naviguez vers le répertoire du projet :
    ```sh
@@ -749,7 +751,13 @@ Sortie :
    Counter value: 1.82106e+07
    ```
 
-## td3_a_3)
+L’ordre de grandeur est autour de 10^7. C’est environ 10 fois moins qu’avec une seule tâche. Cela montre que quand plusieurs tâches accèdent à une ressource partagée, elles se ralentissent entre elles à cause des synchronisations nécessaires (accès concurrent au compteur).
+
+Les tâches doivent attendre leur tour à cause du mutex, donc elles se bloquent entre elles.
+Résultat : le compteur augmente moins vite, même avec plusieurs tâches.
+Conclusion : Plus de tâches ≠ plus de performance quand il y a une ressource partagée.
+
+## td3_a_3) Création et utilisation de tâches et de mutex Posix
 
 1. Naviguez vers le répertoire du projet :
    ```sh
@@ -790,6 +798,9 @@ Sortie :
    Type 's' to stop: s
    Counter value: 5.58301e+06
    ```
+
+On constate une grosse différence! Avec le mutex, la valeur du compteur est beaucoup plus basse (environ 5,6 millions) par rapport à avant (environ 18-19 millions avec 3 tâches sans mutex, et environ 145 millions avec 1 seule tâche sans synchronisation). Cela montre que la synchronisation avec un mutex ralentit fortement l’incrémentation, car les tâches passent leur temps à attendre le verrou.
+Conclusion : Protéger les accès avec un mutex assure la sécurité, mais réduit les performances quand plusieurs tâches accèdent à la même ressource.
 
 ## td3_b)
 
